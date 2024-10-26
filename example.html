@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example - Weather</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/larger.css" />
+    <script src="./scripts/main.js" defer></script>
+  </head>
+  <body>
+    <header class="example-header">
+      <h1 class="header-title">Parent weather radar</h1>
+    </header>
+    <main class="example-main">
+      <section class="hero-section">
+        <img
+          class="hero-image"
+          src="./assets/weather-map-svgrepo-com.svg"
+          alt="weather hero image"
+          loading="lazy"
+        />
+      </section>
+      <section class="current-weather-section">
+        <h2 class="current-weather-title">
+          Current Weather for Wednesday October 23rd
+        </h2>
+        <p class="current-weather-text">
+          Current temperature: 54<span id="current-temp"></span>
+        </p>
+        <figure>
+          <div id="weather-img-wrapper" class="weather-img-wrapper"></div>
+          <figcaption></figcaption>
+        </figure>
+        <p class="current-weather-recommendation">
+          Recommendation: wear a jacket<span id="recommendation-text"></span>
+        </p>
+      </section>
+      <section class="five-day-weather-section">
+        <h2 class="five-day-weather-title">5 Day Forecast</h2>
+        <div class="five-day-weather-wrapper" id="forecast">
+          <div class="individual-day-wrapper">
+            <p>Date: Oct 10</p>
+            <p>High: 60</p>
+            <p>Low: 40</p>
+            <p>Wind: 10 mph</p>
+          </div>
+          <div class="individual-day-wrapper">
+            <p>Date: Oct 11</p>
+            <p>High: 65</p>
+            <p>Low: 45</p>
+            <p>Wind: 15 mph</p>
+          </div>
+          <div class="individual-day-wrapper">
+            <p>Date: Oct 12</p>
+            <p>High: 70</p>
+            <p>Low: 50</p>
+            <p>Wind: 20 mph</p>
+          </div>
+          <div class="individual-day-wrapper">
+            <p>Date: Oct 13</p>
+            <p>High: 75</p>
+            <p>Low: 55</p>
+            <p>Wind: 25 mph</p>
+          </div>
+          <div class="individual-day-wrapper">
+            <p>Date: Oct 14</p>
+            <p>High: 80</p>
+            <p>Low: 60</p>
+            <p>Wind: 30 mph</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="example-footer">
+      <p>Miriam Call | WDD 330 | 2024</p>
+    </footer>
+  </body>
+</html>

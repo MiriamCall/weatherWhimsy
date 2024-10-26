@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parent Weather Radar</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="./scripts/main.js" defer></script>
+  </head>
+  <body>
+    <header class="example-header">
+      <h1 class="header-title">Parent Weather Radar</h1>
+      <h3>let the us help you know what clothes to prepare for your kiddos!</h3>
+      <p>We give you the weather data snappy and quick with no fuss and fee</p>
+    </header>
+    <main class="example-main">
+      <!-- <section class="hero-section">
+        <img
+          class="hero-image"
+          src="./assets/weather-map-svgrepo-com.svg"
+          alt="weather hero image"
+          loading="lazy"
+          width="400"
+          height="400"
+        />
+      </section> -->
+      <section
+        class="current-weather-section"
+        aria-labelledby="current-weather-title"
+      >
+        <h2 id="current-weather-title">
+          Current Weather for <span id="current-date"></span>
+        </h2>
+        <div class="weather-info">
+          <p class="current-weather-text">
+            Temperature: <span id="current-temp">Loading...</span>
+          </p>
+          <figure>
+            <div id="weather-img-wrapper" class="weather-img-wrapper"></div>
+            <figcaption id="weather-desc">Loading...</figcaption>
+          </figure>
+        </div>
+        <p class="current-weather-recommendation">
+          Recommendation: <span id="recommendation-text">Loading...</span>
+        </p>
+      </section>
+      <section
+        class="five-day-weather-section"
+        aria-labelledby="five-day-weather-title"
+      >
+        <h2 id="five-day-weather-title">5 Day Forecast</h2>
+        <div class="five-day-weather-wrapper" id="forecast">
+          <!-- Placeholder for dynamic forecast data -->
+        </div>
+      </section>
+    </main>
+    <footer class="example-footer">
+      <p>Miriam Call | WDD 330 | 2024</p>
+    </footer>
+  </body>
+</html>
