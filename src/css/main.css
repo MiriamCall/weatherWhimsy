@@ -1,3 +1,10 @@
+:root {
+  --primary-color: #5386e4;
+  --accent-color: #2980b9;
+  --text-primary-color: #000;
+  --text-alternate-color: #fff;
+}
+
 /* Raleway font styles */
 .raleway-heading-bold {
   font-family: "Raleway", sans-serif;
