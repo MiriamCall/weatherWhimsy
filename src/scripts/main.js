@@ -9,10 +9,14 @@ const forecastWrapper = document.querySelector("#forecast");
 const locationElement = document.querySelector("#current-weather-title");
 const getWeatherButton = document.querySelector("#get-weather-btn");
 
+// Get weather data when user clicks the button.
+// This is conforms to browser privacy standards.
+// Had to chge this from when dom loads to conform to privacy standards.
 getWeatherButton.addEventListener("click", () => {
   getLocation();
 });
 
+// Get geolocation data and fetch weather data, and forecast data
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -29,22 +33,33 @@ function getLocation() {
   }
 }
 
+// Create the URL for the weather API with the lat and lon and the API key
 function createWeatherUrl(lat, lon) {
   return `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_key}&units=imperial`;
 }
 
+// Create the URL for the forecast API with the lat and lon and the API key
 function createForecastUrl(lat, lon) {
   return `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_key}&units=imperial`;
 }
 
+// Fetch weather data from the API
 async function getWeatherData(url) {
   const cachedWeather = JSON.parse(localStorage.getItem("weatherData"));
-  const now = Date.now();
+  const now = Date.now(); // current time in milliseconds
 
+  // Check if the cached data is still valid
   if (cachedWeather && now - cachedWeather.timestamp < CACHE_DURATION) {
     console.log("Using cached weather data");
+    // Cache allows for offline use & reduces API calls to the weather API
+    // This helps prevent rate limiting and saves on API costs
+    // Display the cached data
     displayWeatherData(cachedWeather.data);
+
+    // Update the recommendations based on the cached data
     updateRecommendations(cachedWeather.data.main.temp);
+
+    // Insert the current location based on the cached data
     insertCurrentLocation(cachedWeather.data);
   } else {
     try {
@@ -59,8 +74,13 @@ async function getWeatherData(url) {
           JSON.stringify({ data: data, timestamp: now })
         );
 
+        // Display the new data
         displayWeatherData(data);
+
+        // Update the recommendations based on the new data
         updateRecommendations(data.main.temp);
+
+        // Insert the current location based on the new data
         insertCurrentLocation(data);
       } else {
         throw new Error("Error fetching weather data.");
@@ -71,7 +91,9 @@ async function getWeatherData(url) {
   }
 }
 
+// Fetch forecast data from the API
 async function getForecastData(url) {
+  // Check if there is cached forecast data
   const cachedForecast = JSON.parse(localStorage.getItem("forecastData"));
   const now = Date.now();
 
@@ -100,7 +122,9 @@ async function getForecastData(url) {
   }
 }
 
+// Insert the current location into the page
 function insertCurrentLocation(data) {
+  // Get the location name from the weather json data
   const loactionName = data.name;
   if (data) {
     locationElement.textContent = `Current Weather in ${loactionName}`;
@@ -109,14 +133,17 @@ function insertCurrentLocation(data) {
   }
 }
 
+// Display the weather data on the page
 function displayWeatherData(data) {
   const temp = data.main.temp.toFixed(0);
   const description = data.weather[0].description;
   insertCurrentLocation(data);
   const iconSrc = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
 
+  // Display the current temperature and weather icon
   currentTemp.textContent = `${temp}°F`;
 
+  // Display the weather icon and description
   weatherImgWrapper.innerHTML = "";
   const weatherImg = document.createElement("img");
   weatherImg.setAttribute("src", iconSrc);
@@ -125,6 +152,7 @@ function displayWeatherData(data) {
   captionDesc.textContent = description;
 }
 
+// Display the forecast data on the page
 function displayForecastData(data) {
   forecastWrapper.innerHTML = "";
 
@@ -152,6 +180,7 @@ function displayForecastData(data) {
   });
 }
 
+// Update the recommendations based on the temperature conditions
 function updateRecommendations(temp) {
   let recommendation = "";
 
