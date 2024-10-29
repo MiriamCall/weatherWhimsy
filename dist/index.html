@@ -3,55 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Parent Weather Radar</title>
+    <title>Parent Weather Radar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
-    />
-    <script type="module" crossorigin src="/assets/main-qu1Y5_a1.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-DWdH3xUd.css">
+    />
+
+    <script type="module" crossorigin src="/assets/main-7y0ZCKsZ.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-DGeDAVlo.css">
   </head>
   <body>
     <header class="example-header">
-      <h1 class="header-title">Parent Weather Radar</h1>
+      <h1 class="header-title">Welcome to Weather Whimsy!</h1>
       <h3>Let the us help you know what clothes to prepare for your kiddos!</h3>
-      <p>We give you the weather data snappy and quick with no fuss and fee</p>
+      <p>
+        We give you the weather data snappy and quick with no fuss and no fee!
+      </p>
     </header>
     <main class="example-main">
-      <!-- <section class="hero-section">
-        <img
-          class="hero-image"
-          src="./assets/weather-map-svgrepo-com.svg"
-          alt="weather hero image"
-          loading="lazy"
-          width="400"
-          height="400"
-        />
-      </section> -->
-      <section
-        class="current-weather-section"
-        aria-labelledby="current-weather-title"
-      >
-        <h2 id="current-weather-title">
-          Current Weather for <span id="current-date"></span>
-        </h2>
+      <div class="weather-btn-wrapper">
+        <button id="get-weather-btn" class="weather-btn">
+          Get Current Weather
+        </button>
+      </div>
+      <section class="current-weather-section">
+        <h2 id="current-weather-title">Current Weather is:</h2>
         <div class="weather-info">
           <p class="current-weather-text">
             Temperature: <span id="current-temp">Loading...</span>
           </p>
+
           <figure>
             <div id="weather-img-wrapper" class="weather-img-wrapper"></div>
             <figcaption id="weather-desc">Loading...</figcaption>
           </figure>
         </div>
-        <p class="current-weather-recommendation">
-          Recommendation: <span id="recommendation-text">Loading...</span>
-        </p>
       </section>
-      <section
-        class="five-day-weather-section"
-        aria-labelledby="five-day-weather-title"
-      >
+
+      <div class="recommendation-wrapper">
+        <p class="current-weather-recommendation">
+          Recommendation: <br />
+          <br />
+          <span class="recommendation-text" id="recommendation-text"
+            >Loading...</span
+          >
+        </p>
+      </div>
+
+      <section class="five-day-weather-section">
         <h2 id="five-day-weather-title">5 Day Forecast</h2>
         <div class="five-day-weather-wrapper" id="forecast">
           <!-- Placeholder for dynamic forecast data -->
