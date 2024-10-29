@@ -103,7 +103,7 @@ footer p {
 .weather-info {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   margin-bottom: 1rem;
 }
 
@@ -124,9 +124,12 @@ figcaption {
 
 .current-weather-recommendation {
   margin-top: 1rem;
-  font-size: 1.25rem;
-  color: #7a0000; /* Accent color */
   font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.recommendation-text {
+  color: var(--secondary-color);
 }
 
 .recommendation-wrapper {
