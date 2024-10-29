@@ -9,10 +9,6 @@ const forecastWrapper = document.querySelector("#forecast");
 const locationElement = document.querySelector("#current-weather-title");
 const getWeatherButton = document.querySelector("#get-weather-btn");
 
-document.addEventListener("DOMContentLoaded", () => {
-  // getLocation();
-});
-
 getWeatherButton.addEventListener("click", () => {
   getLocation();
 });
@@ -89,7 +85,6 @@ async function getForecastData(url) {
         const data = await response.json();
         console.log("Fetched new forecast data");
 
-        // Cache the data with a timestamp
         localStorage.setItem(
           "forecastData",
           JSON.stringify({ data: data, timestamp: now })
@@ -120,24 +115,19 @@ function displayWeatherData(data) {
   insertCurrentLocation(data);
   const iconSrc = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
 
-  // Update the current temperature
   currentTemp.textContent = `${temp}°F`;
 
-  // Create and append the weather icon image
-  weatherImgWrapper.innerHTML = ""; // Clear previous image
+  weatherImgWrapper.innerHTML = "";
   const weatherImg = document.createElement("img");
   weatherImg.setAttribute("src", iconSrc);
   weatherImg.setAttribute("alt", description);
   weatherImgWrapper.appendChild(weatherImg);
-
-  // Update the weather description
   captionDesc.textContent = description;
 }
 
 function displayForecastData(data) {
-  forecastWrapper.innerHTML = ""; // Clear previous forecast data
+  forecastWrapper.innerHTML = "";
 
-  // Group forecast data by day
   const forecast = {};
   data.list.forEach((item) => {
     const date = new Date(item.dt_txt).toDateString();
