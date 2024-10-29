@@ -1,4 +1,5 @@
-const API_key = import.meta.env.VITE_API_KEY;
+// const API_key = import.meta.env.VITE_API_KEY;
+const API_key = process.env.VITE_API_KEY;
 
 const currentTemp = document.querySelector("#current-temp");
 const weatherImgWrapper = document.querySelector("#weather-img-wrapper");
