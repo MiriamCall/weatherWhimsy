@@ -1,6 +1,6 @@
-// const API_key = import.meta.env.VITE_API_KEY;
+const API_key = import.meta.env.VITE_API_KEY;
 const CACHE_DURATION = 60 * 60 * 1000; // 1 hour in milliseconds
-const API_key = process.env.VITE_API_KEY;
+// const API_key = process.env.VITE_API_KEY;
 
 const currentTemp = document.querySelector("#current-temp");
 const weatherImgWrapper = document.querySelector("#weather-img-wrapper");
