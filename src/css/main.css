@@ -1,6 +1,7 @@
 :root {
-  --primary-color: #5386e4;
-  --accent-color: #2980b9;
+  --primary-color: #87ceeb;
+  --accent-color: #ffd700;
+  --secondary-color: #0540ae;
   --text-primary-color: #000;
   --text-alternate-color: #fff;
 }
@@ -36,38 +37,23 @@ body {
   font-family: "Raleway", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f8fb;
-  color: #333;
+  background-color: var(--primary-color);
+  color: var(--text-primary-color);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-h1,
-h2 {
-  font-weight: 600;
-  color: #2c3e50;
-}
-
-p {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5;
-  margin: 0;
-}
-
 header,
 footer {
-  background-color: #5386e4; /* Primary color */
+  background-color: var(--primary-color); /* Primary color */
   padding: 1rem;
   text-align: center;
-  color: white;
 }
 
 footer p {
   margin: 0;
   font-size: 0.875rem;
-  color: black;
 }
 
 .hero-section {
@@ -80,22 +66,6 @@ footer p {
   flex-direction: column;
 }
 
-.hero-image {
-  max-width: 100%;
-  height: auto;
-  width: 250px;
-  margin: 0 auto;
-  display: block;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-@media (min-width: 768px) {
-  .hero-image {
-    width: 400px;
-  }
-}
-
 /* Current Weather Section */
 .current-weather-section {
   background-color: #fff;
@@ -104,6 +74,30 @@ footer p {
   padding: 1.5rem;
   margin: 1.5rem 1rem;
   text-align: center;
+}
+
+.weather-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.weather-btn {
+  background-color: var(--accent-color);
+  color: var(--text-primary-color);
+  font-size: 1.25rem;
+  font-weight: 575;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.weather-btn:hover {
+  color: white;
+  background-color: #00b121;
+  border-color: transparent;
 }
 
 .weather-info {
@@ -116,7 +110,6 @@ footer p {
 .current-weather-text {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #2980b9; /* Accent color */
 }
 
 #weather-img-wrapper img {
@@ -126,15 +119,26 @@ footer p {
 
 figcaption {
   font-style: italic;
-  color: black;
   font-size: 0.875rem;
 }
 
 .current-weather-recommendation {
   margin-top: 1rem;
   font-size: 1.25rem;
-  color: #2980b9; /* Accent color */
+  color: #7a0000; /* Accent color */
   font-weight: 600;
+}
+
+.recommendation-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* 5-Day Forecast Section */
@@ -154,7 +158,7 @@ figcaption {
 }
 
 .individual-day-wrapper {
-  background-color: #5386e4; /* Primary color */
+  background-color: var(--secondary-color);
   border-radius: 10px;
   padding: 1rem;
   flex: 1 1 30%;
@@ -164,8 +168,9 @@ figcaption {
 
 .individual-day-wrapper p {
   margin: 0.5rem 0;
-  font-size: 1rem;
-  color: black;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-alternate-color);
 }
 
 /* Responsive Design */

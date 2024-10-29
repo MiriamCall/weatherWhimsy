@@ -20,12 +20,16 @@
   </head>
   <body>
     <header class="example-header">
-      <h1 class="header-title">Parent Weather Radar</h1>
+      <h1 class="header-title">Welcome to Weather Whimsy!</h1>
       <h3>Let the us help you know what clothes to prepare for your kiddos!</h3>
       <p>We give you the weather data snappy and quick with no fuss and fee</p>
     </header>
     <main class="example-main">
-      <button id="get-weather-btn">Get Current Weather</button>
+      <div class="weather-btn-wrapper">
+        <button id="get-weather-btn" class="weather-btn">
+          Get Current Weather
+        </button>
+      </div>
       <section class="current-weather-section">
         <h2 id="current-weather-title">Current Weather is:</h2>
         <div class="weather-info">
@@ -37,12 +41,14 @@
             <figcaption id="weather-desc">Loading...</figcaption>
           </figure>
         </div>
-        <div class="recommendation-wrapper">
-          <p class="current-weather-recommendation">
-            Recommendation: <span id="recommendation-text">Loading...</span>
-          </p>
-        </div>
       </section>
+
+      <div class="recommendation-wrapper">
+        <p class="current-weather-recommendation">
+          Recommendation: <span id="recommendation-text">Loading...</span>
+        </p>
+      </div>
+
       <section class="five-day-weather-section">
         <h2 id="five-day-weather-title">5 Day Forecast</h2>
         <div class="five-day-weather-wrapper" id="forecast">
