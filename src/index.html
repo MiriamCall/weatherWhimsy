@@ -4,11 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Parent Weather Radar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/main.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
     />
+
     <script type="module" src="./scripts/main.js" defer></script>
   </head>
   <body>
@@ -18,22 +25,10 @@
       <p>We give you the weather data snappy and quick with no fuss and fee</p>
     </header>
     <main class="example-main">
-      <!-- <section class="hero-section">
-        <img
-          class="hero-image"
-          src="./assets/weather-map-svgrepo-com.svg"
-          alt="weather hero image"
-          loading="lazy"
-          width="400"
-          height="400"
-        />
-      </section> -->
-      <section
-        class="current-weather-section"
-        aria-labelledby="current-weather-title"
-      >
+      <button id="get-weather-btn">Get Current Weather</button>
+      <section class="current-weather-section">
         <h2 id="current-weather-title">
-          Current Weather for <span id="current-date"></span>
+          Current Weather for <span id="current-location"></span>
         </h2>
         <div class="weather-info">
           <p class="current-weather-text">

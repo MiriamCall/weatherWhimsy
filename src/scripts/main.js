@@ -1,13 +1,20 @@
-// const API_key = import.meta.env.VITE_API_KEY;
-const API_key = process.env.VITE_API_KEY;
+const API_key = import.meta.env.VITE_API_KEY;
+const CACHE_DURATION = 60 * 60 * 1000; // 1 hour in milliseconds
+// const API_key = process.env.VITE_API_KEY;
 
 const currentTemp = document.querySelector("#current-temp");
 const weatherImgWrapper = document.querySelector("#weather-img-wrapper");
 const captionDesc = document.querySelector("#weather-desc");
 const recommendationText = document.querySelector("#recommendation-text");
 const forecastWrapper = document.querySelector("#forecast");
+const locationElement = document.querySelector("#current-weather-title");
+const getWeatherButton = document.querySelector("#get-weather-btn");
 
 document.addEventListener("DOMContentLoaded", () => {
+  // getLocation();
+});
+
+getWeatherButton.addEventListener("click", () => {
   getLocation();
 });
 
@@ -36,39 +43,82 @@ function createForecastUrl(lat, lon) {
 }
 
 async function getWeatherData(url) {
-  try {
-    const response = await fetch(url);
-    if (response.ok) {
-      const data = await response.json();
-      console.log(data); // testing only
-      displayWeatherData(data);
-      updateRecommendations(data.main.temp);
-    } else {
-      throw new Error("Error fetching weather data.");
+  const cachedWeather = JSON.parse(localStorage.getItem("weatherData"));
+  const now = Date.now();
+
+  if (cachedWeather && now - cachedWeather.timestamp < CACHE_DURATION) {
+    console.log("Using cached weather data");
+    displayWeatherData(cachedWeather.data);
+    updateRecommendations(cachedWeather.data.main.temp);
+    insertCurrentLocation(cachedWeather.data);
+  } else {
+    try {
+      const response = await fetch(url);
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Fetched new weather data");
+
+        // Cache the data with a timestamp
+        localStorage.setItem(
+          "weatherData",
+          JSON.stringify({ data: data, timestamp: now })
+        );
+
+        displayWeatherData(data);
+        updateRecommendations(data.main.temp);
+        insertCurrentLocation(data);
+      } else {
+        throw new Error("Error fetching weather data.");
+      }
+    } catch (error) {
+      console.log(error);
     }
-  } catch (error) {
-    console.log(error);
   }
 }
 
 async function getForecastData(url) {
-  try {
-    const response = await fetch(url);
-    if (response.ok) {
-      const data = await response.json();
-      console.log(data); // testing only
-      displayForecastData(data);
-    } else {
-      throw new Error("Error fetching forecast data.");
+  const cachedForecast = JSON.parse(localStorage.getItem("forecastData"));
+  const now = Date.now();
+
+  if (cachedForecast && now - cachedForecast.timestamp < CACHE_DURATION) {
+    console.log("Using cached forecast data");
+    displayForecastData(cachedForecast.data);
+  } else {
+    try {
+      const response = await fetch(url);
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Fetched new forecast data");
+
+        // Cache the data with a timestamp
+        localStorage.setItem(
+          "forecastData",
+          JSON.stringify({ data: data, timestamp: now })
+        );
+
+        displayForecastData(data);
+      } else {
+        throw new Error("Error fetching forecast data.");
+      }
+    } catch (error) {
+      console.log(error);
     }
-  } catch (error) {
-    console.log(error);
+  }
+}
+
+function insertCurrentLocation(data) {
+  const loactionName = data.name;
+  if (data) {
+    locationElement.textContent = `Current Weather in ${loactionName}`;
+  } else {
+    locationElement.textContent = "Current Weather is:";
   }
 }
 
 function displayWeatherData(data) {
   const temp = data.main.temp.toFixed(0);
   const description = data.weather[0].description;
+  insertCurrentLocation(data);
   const iconSrc = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
 
   // Update the current temperature

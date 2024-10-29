@@ -1,60 +1,32 @@
-/* header {
-  background-color: white;
-  color: black;
-  padding: 1em;
-  text-align: center;
-  font-size: 2rem;
-}
-
-h2 {
-  color: black;
-  font-size: 1.5em;
-  margin: 0;
-  padding: 0.5em;
-  text-align: center;
-  background-color: #5386e4;
-}
-
-.current-temp {
-  color: black;
+/* Raleway font styles */
+.raleway-heading-bold {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
   font-size: 2em;
-  padding: 0.5em;
 }
 
-.card {
-  border: 1px solid black;
-  background-color: white;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 0rem 1rem 1rem 1rem;
-  text-align: center;
+.raleway-body-regular {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
 }
 
-.recommendations {
-  font-size: 1.5em;
-  padding: 1rem;
+/* Exo 2 font styles */
+.exo-2-heading-light {
+  font-family: "Exo 2", serif;
+  font-weight: 300;
+  font-size: 1.8em;
 }
 
-.individual-day-wrapper {
-  font-size: 1.5em;
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  border: 0.2rem solid #4c4b63;
+.exo-2-body-regular {
+  font-family: "Exo 2", serif;
+  font-weight: 400;
+  font-size: 16px;
 }
-
-footer {
-  background-color: #4c4b63;
-  color: white;
-  padding: 1em;
-  text-align: center;
-  font-size: 1rem;
-  margin: 1rem 0 0 0;
-} */
 
 /* Global styles */
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Raleway", sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f8fb;
@@ -79,21 +51,22 @@ p {
 
 header,
 footer {
-  background-color: #ffda79;
+  background-color: #5386e4; /* Primary color */
   padding: 1rem;
   text-align: center;
+  color: white;
 }
 
 footer p {
   margin: 0;
   font-size: 0.875rem;
-  color: #555;
+  color: black;
 }
 
 .hero-section {
   text-align: center;
   padding: 2rem 1rem;
-  background-color: #f0f8ff; /* Adding a soft background to make the image pop */
+  background-color: #f0f8ff; /* Soft background */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,16 +76,16 @@ footer p {
 .hero-image {
   max-width: 100%;
   height: auto;
-  width: 250px; /* Limit width on larger screens */
+  width: 250px;
   margin: 0 auto;
-  display: block; /* Ensure it's centered within the section */
-  border-radius: 10px; /* Soft edges for a friendly, approachable feel */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for emphasis */
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 @media (min-width: 768px) {
   .hero-image {
-    width: 400px; /* Larger size on bigger screens for better visibility */
+    width: 400px;
   }
 }
 
@@ -136,7 +109,7 @@ footer p {
 .current-weather-text {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #2980b9;
+  color: #2980b9; /* Accent color */
 }
 
 #weather-img-wrapper img {
@@ -146,14 +119,14 @@ footer p {
 
 figcaption {
   font-style: italic;
-  color: #7f8c8d;
+  color: black;
   font-size: 0.875rem;
 }
 
 .current-weather-recommendation {
   margin-top: 1rem;
-  font-size: 1rem;
-  color: #e74c3c;
+  font-size: 1.25rem;
+  color: #2980b9; /* Accent color */
   font-weight: 600;
 }
 
@@ -174,7 +147,7 @@ figcaption {
 }
 
 .individual-day-wrapper {
-  background-color: #ffebcd;
+  background-color: #5386e4; /* Primary color */
   border-radius: 10px;
   padding: 1rem;
   flex: 1 1 30%;
@@ -184,7 +157,8 @@ figcaption {
 
 .individual-day-wrapper p {
   margin: 0.5rem 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  color: black;
 }
 
 /* Responsive Design */
