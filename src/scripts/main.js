@@ -11,7 +11,7 @@ const getWeatherButton = document.querySelector("#get-weather-btn");
 
 // Get weather data when user clicks the button.
 // This is conforms to browser privacy standards.
-// Had to chge this from when dom loads to conform to privacy standards.
+// Had to change this from when dom loads to conform to privacy standards.
 getWeatherButton.addEventListener("click", () => {
   getLocation();
 });
@@ -125,9 +125,9 @@ async function getForecastData(url) {
 // Insert the current location into the page
 function insertCurrentLocation(data) {
   // Get the location name from the weather json data
-  const loactionName = data.name;
+  const locationName = data.name;
   if (data) {
-    locationElement.textContent = `Current Weather in ${loactionName}`;
+    locationElement.textContent = `Current Weather in ${locationName}`;
   } else {
     locationElement.textContent = "Current Weather is:";
   }
